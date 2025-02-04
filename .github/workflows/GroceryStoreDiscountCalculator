@@ -1,0 +1,77 @@
+using System;
+using System.Collections;
+using System.Linq;
+using System.Runtime.InteropServices;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace GroceryStoreDiscountCalculator
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            ArrayList items = new ArrayList();
+            CannedGoods cg = new CannedGoods();
+
+            Console.WriteLine("====== GROCERY MENU CATEGORIES ======");
+            Console.WriteLine("\t[1] Canned Goods");
+            Console.WriteLine("\t[2] Meat");
+            Console.WriteLine("\t[3] Fruits");
+            Console.WriteLine("\t[4] Vegetables");
+            Console.WriteLine("\t[5] Snacks");
+            Console.WriteLine("\t[6] Sweets");
+            Console.WriteLine("\t[7] Sauces and Condiments");
+            Console.WriteLine("\t[8] Beverages");
+            Console.WriteLine("\t[9] Personal Care");
+            Console.WriteLine("\t[10] Household and Cleaning");
+            Console.WriteLine("\t[x] View Cart");
+            Console.WriteLine("=====================================");
+
+            string choice = Console.ReadLine();
+            Console.Clear();
+
+            switch (choice) {
+                case "1":
+                    cg.cgMenu();
+                    break;
+                case "2":
+                    break;
+                case "3":
+                    break;
+                case "4":
+                    break;
+                case "5":
+                    break;
+                case "6":
+                    break;
+
+            }
+        }
+        public class CannedGoods {
+            public void cgMenu() {
+
+                Console.WriteLine("===== CANNED GOODS =====");
+                Console.WriteLine("[1] Search an Item");
+                Console.WriteLine("[2] 555 Sardines");
+                Console.WriteLine("[x] Return");
+                Console.WriteLine("========================");
+
+                string choice = Console.ReadLine();
+
+                switch (choice) {
+                    case "1":
+                        break;
+                    case "2":
+                        Console.WriteLine("Quantity: ");
+                        int quantity = Convert.ToInt16(Console.ReadLine());
+                        break;
+                    case "x":
+                    case "X":
+                        Console.WriteLine();
+                        break;
+                }
+            }
+        } 
+    }
+}
