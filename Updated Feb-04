@@ -1,0 +1,279 @@
+using System;
+using System.Collections;
+using System.Linq;
+using System.Runtime.InteropServices;
+using System.Text;
+using System.Threading;
+namespace GroceryStoreDiscountCalculator{
+    internal class Program{
+        static void Main(string[] args){
+            ArrayList items = new ArrayList();
+            CannedGoods cg = new CannedGoods();
+            Fruits fruit = new Fruits();
+            Vegetables veg = new Vegetables();
+                while(true){
+                    Console.WriteLine("====== GROCERY MENU CATEGORIES ======");
+                    Console.WriteLine("\t[1] Canned Goods");
+                    Console.WriteLine("\t[2] Meat");
+                    Console.WriteLine("\t[3] Fruits");
+                    Console.WriteLine("\t[4] Vegetables");
+                    Console.WriteLine("\t[5] Snacks");
+                    Console.WriteLine("\t[6] Sweets");
+                    Console.WriteLine("\t[7] Sauces and Condiments");
+                    Console.WriteLine("\t[8] Beverages");
+                    Console.WriteLine("\t[9] Personal Care");
+                    Console.WriteLine("\t[10] Household and Cleaning");
+                    Console.WriteLine("\t[x] View Cart");
+                    Console.WriteLine("=====================================");
+                    string choice = Console.ReadLine();
+                    
+                    switch (choice) {
+                        case "1":
+                            cg.cgMenu();
+                            break;
+                        case "2":
+                            break;
+                        case "3":
+                            fruit.fruitsMenu();
+                            break;
+                        case "4":
+                            veg.veggieMenu();
+                            break;
+                        case "5":
+                            break;
+                        case "6":
+                            break;
+                        case "7":
+                            break;
+                        case "8":
+                            break;
+                        case "9":
+                            break;
+                        case "10":
+                            break;
+                        case "x":
+                        case "X":
+                            break;
+                        default:
+                            break;
+                    }
+                }
+        }
+        public class CannedGoods {
+            public void cgMenu() {
+                Console.WriteLine("===== CANNED GOODS =====");
+                Console.WriteLine("[1] Search an Item");
+                Console.WriteLine("[2] 555 Sardines");
+                Console.WriteLine("[x] Return");
+                Console.WriteLine("========================");
+                string choice = Console.ReadLine();
+                switch (choice) {
+                    case "1":
+                        break;
+                    case "2":
+                        Console.WriteLine("Quantity: ");
+                        int quantity = Convert.ToInt16(Console.ReadLine());
+                        break;
+                    case "x":
+                    case "X":
+                        Console.WriteLine();
+                        break;
+                    default:
+                        break;
+                }
+            }
+        }
+        public class Fruits{
+            public void fruitsMenu(){
+                while(true){
+                    Console.Clear();
+                    Console.WriteLine("============= FRUITS =============");
+                    Console.WriteLine("\t[1] Search an Item");
+                    Console.WriteLine("\t[2] Apple");
+                    Console.WriteLine("\t[3] Banana");
+                    Console.WriteLine("\t[4] Grapes");
+                    Console.WriteLine("\t[5] Mango");
+                    Console.WriteLine("\t[6] Orange");
+                    Console.WriteLine("\t[7] Papaya");
+                    Console.WriteLine("\t[8] Strawberry");
+                    Console.WriteLine("\t[9] Watermelon");
+                    Console.WriteLine("\t[x] Return to Main Menu");
+                    Console.WriteLine("=================================");
+            
+                    string choice = Console.ReadLine();
+            
+                    switch(choice){
+                        case "1":
+                            ArrayList fruitList = new ArrayList{
+                                new ArrayList {"Apple", 20.01},
+                                new ArrayList {"Banana", 30.00},
+                                new ArrayList {"Grapes", 60.00},
+                                new ArrayList {"Mango", 50.00},
+                                new ArrayList {"Orange", 40.00},
+                                new ArrayList {"Papaya", 45.00},
+                                new ArrayList {"Strawberry", 55.00},
+                                new ArrayList {"Watermelon", 35.00}
+                            };
+                            Console.WriteLine("Enter an item (fruit) to search: ");
+                            string userFruit = Console.ReadLine();
+                            
+                            bool found = false;
+                            foreach (ArrayList item in fruitList){
+                                if(item[0].ToString().Equals(userFruit, StringComparison.OrdinalIgnoreCase)){
+                                    Console.WriteLine($"Item: {item[0]} Price: Php {item[1]}");
+                                    found = true;
+                                    break;
+                                }
+                            }
+                            if (!found){
+                                    Console.WriteLine("Item not found.") ;
+                                }
+                            break;
+                        case "2":
+                            Console.WriteLine("Enter Quantity: ");
+                            int appleQuantity = Convert.ToInt16(Console.ReadLine());
+                            break;
+                        case "3":
+                            Console.WriteLine("Enter Quantity: ");
+                            int bananaQuantity = Convert.ToInt16(Console.ReadLine());
+                            break;
+                        case "4":
+                            Console.WriteLine("Enter Quantity: ");
+                            int grapesQuantity = Convert.ToInt16(Console.ReadLine());
+                            break;
+                        case "5":
+                            Console.WriteLine("Enter Quantity: ");
+                            int mangoQuantity = Convert.ToInt16(Console.ReadLine());
+                            break;
+                        case "6":
+                            Console.WriteLine("Enter Quantity: ");
+                            int orangeQuantity = Convert.ToInt16(Console.ReadLine());
+                            break;
+                        case "7":
+                            Console.WriteLine("Enter Quantity: ");
+                            int papayaQuantity = Convert.ToInt16(Console.ReadLine());
+                            break;
+                        case "8":
+                            Console.WriteLine("Enter Quantity: ");
+                            int strawberryQuantity = Convert.ToInt16(Console.ReadLine());
+                            break;
+                        case "9":
+                            Console.WriteLine("Enter Quantity: ");
+                            int watermelonQuantity = Convert.ToInt16(Console.ReadLine());
+                            break;
+                        case "x":
+                        case "X":
+                            Console.Write("Returning to Main Menu.");
+                                try{
+                                    Thread.Sleep(1000);
+                                } catch (Exception e){
+                                }
+                            Console.Write(".");
+                                try{
+                                    Thread.Sleep(500);
+                                } catch (Exception e){
+                                }
+                            Console.Write(".");
+                                try{
+                                    Thread.Sleep(1000);
+                                } catch (Exception e){
+                                }
+                            return;
+                        default:
+                            Console.WriteLine("Invalid input. Please try again.");
+                            break;
+                    }
+                }
+            }
+        }
+        public class Vegetables{
+            public void veggieMenu(){
+                while(true){
+                    Console.Clear();
+                    Console.WriteLine("============= VEGETABLES =============");
+                    Console.WriteLine("\t[1] Search an Item");
+                    Console.WriteLine("\t[2] Broccoli");
+                    Console.WriteLine("\t[3] Bell Pepper");
+                    Console.WriteLine("\t[4] Cabbage");
+                    Console.WriteLine("\t[5] Carrot");
+                    Console.WriteLine("\t[6] Cucumber");
+                    Console.WriteLine("\t[7] Eggplant");
+                    Console.WriteLine("\t[8] Garlic");
+                    Console.WriteLine("\t[9] Ginger");
+                    Console.WriteLine("\t[10] Onion");
+                    Console.WriteLine("\t[11] Potato");
+                    Console.WriteLine("\t[x] Return to Main Menu");
+                    Console.WriteLine("=================================");
+                
+                    string choice = Console.ReadLine();
+            
+                    switch(choice){
+                        case "1":
+                            break;
+                        case "2":
+                            Console.WriteLine("Enter Quantity: ");
+                            int broccoliQuantity = Convert.ToInt16(Console.ReadLine());
+                            break;
+                        case "3":
+                            Console.WriteLine("Enter Quantity: ");
+                            int bellPepperQuantity = Convert.ToInt16(Console.ReadLine());
+                            break;
+                        case "4":
+                            Console.WriteLine("Enter Quantity: ");
+                            int cabbageQuantity = Convert.ToInt16(Console.ReadLine());
+                            break;
+                        case "5":
+                            Console.WriteLine("Enter Quantity: ");
+                            int carrotQuantity = Convert.ToInt16(Console.ReadLine());
+                            break;
+                        case "6":
+                            Console.WriteLine("Enter Quantity: ");
+                            int cucumberQuantity = Convert.ToInt16(Console.ReadLine());
+                            break;
+                        case "7":
+                            Console.WriteLine("Enter Quantity: ");
+                            int eggplantQuantity = Convert.ToInt16(Console.ReadLine());
+                            break;
+                        case "8":
+                            Console.WriteLine("Enter Quantity: ");
+                            int garlicQuantity = Convert.ToInt16(Console.ReadLine());
+                            break;
+                        case "9":
+                            Console.WriteLine("Enter Quantity: ");
+                            int gingerQuantity = Convert.ToInt16(Console.ReadLine());
+                            break;
+                        case "10":
+                            Console.WriteLine("Enter Quantity: ");
+                            int onionQuantity = Convert.ToInt16(Console.ReadLine());
+                            break;
+                        case "11":
+                            Console.WriteLine("Enter Quantity: ");
+                            int potatoQuantity = Convert.ToInt16(Console.ReadLine());
+                            break;
+                        case "x":
+                        case "X":
+                            Console.Write("Returning to Main Menu.");
+                                try{
+                                    Thread.Sleep(1000);
+                                } catch (Exception e){
+                                }
+                            Console.Write(".");
+                                try{
+                                    Thread.Sleep(500);
+                                } catch (Exception e){
+                                }
+                            Console.Write(".");
+                                try{
+                                    Thread.Sleep(500);
+                                } catch (Exception e){
+                                }
+                        break;
+                    default:
+                        Console.WriteLine("Invalid input. Please try again.");
+                        break;
+                    }
+                }
+            }
+        }
+    }
+}
